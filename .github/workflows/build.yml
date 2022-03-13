@@ -50,7 +50,7 @@ jobs:
 
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@548e2346a9987b56d8a4104fe776321ff8e23440
+        uses: docker/metadata-action@v3
         env:
           BASE_TAG: ${{ matrix.umami }}
         with:
