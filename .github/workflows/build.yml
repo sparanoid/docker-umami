@@ -51,18 +51,13 @@ jobs:
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@548e2346a9987b56d8a4104fe776321ff8e23440
+        env:
+          BASE_TAG: ${{ matrix.umami }}
         with:
           images: |
             ${{ env.DOCKERHUB_SLUG }}
           tags: |
-            type=edge
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
+            type=raw,value=${{ env.BASE_TAG }}
 
       - name: Build and push
         uses: docker/bake-action@v1
