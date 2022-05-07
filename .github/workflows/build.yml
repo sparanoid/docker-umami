@@ -60,7 +60,7 @@ jobs:
             type=raw,value=${{ env.BASE_TAG }}
 
       - name: Build and push
-        uses: docker/bake-action@v1
+        uses: docker/bake-action@v2
         env:
           BASE_TAG: ${{ matrix.umami }}
         with:
